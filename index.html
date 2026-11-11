@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TVOU</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" />
+  <style>
+     
+
+body {
+  margin: 0;
+  padding-top: 0;
+  background: white;
+  color: black;
+  font-family: "Eina 09", sans-serif;
+  font-weight: normal;
+  font-size: 1.2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#content h1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  z-index: 9999;
+  color: black;
+  margin: 0;
+  font-family: "Eina 09", sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  letter-spacing: .10em;
+}
+
+h2 {
+    font-weight: normal;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+p {
+    margin-left: 20px;
+   margin-right: 20px;
+}
+
+#hero {
+  width: 100%;
+  height: 50vh;   
+  overflow: hidden;
+  position: relative;
+}
+
+#hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* scales and crops nicely */
+  display: block;
+}
+
+
+nav#bottomMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;              /* remove extra padding */
+  z-index: 9999;
+}
+
+nav#bottomMenu a {
+  flex: 1;                 /* each link takes equal width */
+  text-align: center;      /* center text inside each quarter */
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Eina 09", sans-serif;
+  font-weight: bold;
+  letter-spacing: .10em;
+  padding: 10px 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-left: 1px solid black; /* vertical divider */
+}
+
+/* Remove the first divider on the leftmost button */
+nav#bottomMenu a:first-child {
+  border-left: none;
+}
+
+nav#bottomMenu a:hover {
+  background-color: black; /* inverse fill hover */
+  color: white;
+}
+
+
+.container {
+  width: 100%;
+  padding: 50px 5%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.gallery {
+  column-count: 4;        /* default: 4 columns */
+  column-gap: 2rem;       /* space between columns */
+}
+
+.gallery a {
+  display: inline-block;  /* allow items to flow into columns */
+  width: 100%;            /* fill column width */
+  margin-bottom: 2rem;    /* spacing between items vertically */
+}
+
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+
+.gallery a {
+  position: relative;
+  height: auto;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.gallery img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery img:hover {
+  opacity: 0.5;
+  cursor: zoom-in;
+}
+
+.caption {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(250, 235, 215, 0.7);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.caption p {
+  text-align: center;
+  color: black;
+  padding: 1.5rem;
+}
+
+.gallery a:hover .caption {
+  opacity: 1;
+  cursor: zoom-in;
+}
+
+
+  @media(max-width:600px){nav#bottomMenu a{font-size:.8rem;letter-spacing:0;padding:12px 0}} body{padding-bottom:48px}</style>
+</head>
+<body>
+
+<div id="content">
+  <h1>TVOU</h1>
+</div>
+
+<div id="hero">
+    <img src="https://static.tumblr.com/zpixtn5/rEdt5swu2/pop1.jpg">
+</div>
+
+<nav id="bottomMenu">
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/voyages/">Voyages</a>
+  <a href="/contact/">Contact</a>
+</nav>
+
+<h2 class="center">Artwork</h2>
+<p class="center">Click on images to enlarge</p>
+
+<div class="container">
+  <div class="gallery">
+    <a href="https://static.tumblr.com/zpixtn5/msNt5swp1/cn1.jpg" data-lightbox="models" data-title="2024 Installation">
+      <img src="https://static.tumblr.com/zpixtn5/msNt5swp1/cn1.jpg">
+      <div class="caption"><p>Celestial Navigation</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/V9Gt61k12/wave.jpg" data-lightbox="models" data-title="2023 Painting">
+      <img src="https://static.tumblr.com/zpixtn5/V9Gt61k12/wave.jpg">
+      <div class="caption"><p>Wave</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/4BWt61kr6/foe.jpg" data-lightbox="models" data-title="2023 Drawing">
+      <img src="https://static.tumblr.com/zpixtn5/4BWt61kr6/foe.jpg">
+      <div class="caption"><p>F.O.E.</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/u31t61ixm/bubbles.jpg" data-lightbox="models" data-title="2024 Sculpture">
+      <img src="https://static.tumblr.com/zpixtn5/u31t61ixm/bubbles.jpg">
+      <div class="caption"><p>Bubbles</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/tjjt5xlf0/lo1.jpg" data-lightbox="models" data-title="2024 Painting">
+      <img src="https://static.tumblr.com/zpixtn5/tjjt5xlf0/lo1.jpg">
+      <div class="caption"><p>Lone Outrigger pt. 1</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/9Q0t5xlfj/sb1.jpg" data-lightbox="models" data-title="2025 Drawing">
+      <img src="https://static.tumblr.com/zpixtn5/9Q0t5xlfj/sb1.jpg">
+      <div class="caption"><p>Mud</p></div>
+    </a>
+    
+     <a href="https://static.tumblr.com/zpixtn5/plDt61jfi/home.jpg" data-lightbox="models" data-title="2024 Ceramic">
+      <img src="https://static.tumblr.com/zpixtn5/plDt61jfi/home.jpg">
+      <div class="caption"><p>Home</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/Ddst61izq/fetu.jpg" data-lightbox="models" data-title="2025 Intaglio Print">
+      <img src="https://static.tumblr.com/zpixtn5/Ddst61izq/fetu.jpg">
+      <div class="caption"><p>Fetu</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/O3ft5xlg1/swtc1.jpg" data-lightbox="models" data-title="2022 Engraving">
+      <img src="https://static.tumblr.com/zpixtn5/O3ft5xlg1/swtc1.jpg">
+      <div class="caption"><p>Step with Culture</p></div>
+    </a>
+    
+     <a href="https://static.tumblr.com/zpixtn5/IIBt61jqh/school.jpg" data-lightbox="models" data-title="2024 Drawing">
+  <img src="https://static.tumblr.com/zpixtn5/IIBt61jqh/school.jpg">
+  <div class="caption"><p>School</p></div>
+</a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/i6Vt5rc75/tvp1.jpg" data-lightbox="models" data-title="2025 Photography">
+      <img src="https://static.tumblr.com/zpixtn5/i6Vt5rc75/tvp1.jpg">
+      <div class="caption"><p>Ceiling</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/cv1t61iy0/mu__mu__.jpg" data-lightbox="models" data-title="2025 Relief Print">
+      <img src="https://static.tumblr.com/zpixtn5/cv1t61iy0/mu__mu__.jpg">
+      <div class="caption"><p>Mūmū</p></div>
+    </a>
+    
+      <a href="https://static.tumblr.com/zpixtn5/oUUt5swxf/pop3.jpg" data-lightbox="models" data-title="2022 Carving">
+      <img src="https://static.tumblr.com/zpixtn5/oUUt5swxf/pop3.jpg">
+      <div class="caption"><p>Patterns of the Pacific</p></div>
+    </a>
+    
+     <a href="https://static.tumblr.com/zpixtn5/5Omt61iyk/toloa.jpg" data-lightbox="models" data-title="2024 Sculpture">
+      <img src="https://static.tumblr.com/zpixtn5/5Omt61iyk/toloa.jpg">
+      <div class="caption"><p>Toloa</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/zqSt61kch/leaf.jpg" data-lightbox="models" data-title="2023 Painting">
+      <img src="https://static.tumblr.com/zpixtn5/zqSt61kch/leaf.jpg">
+      <div class="caption"><p>Leaf</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/W8wt5rccd/tvp3.jpg" data-lightbox="models" data-title="2025 Photography">
+      <img src="https://static.tumblr.com/zpixtn5/W8wt5rccd/tvp3.jpg">
+      <div class="caption"><p>Coffin</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/aPgt5swl3/lo2.jpg" data-lightbox="models" data-title="2024 Painting">
+      <img src="https://static.tumblr.com/zpixtn5/aPgt5swl3/lo2.jpg">
+      <div class="caption"><p>Lone Outrigger pt. 2</p></div>
+    </a>
+    
+     <a href="https://static.tumblr.com/zpixtn5/Nyft61iy9/lua.jpg" data-lightbox="models" data-title="2024 Sculpture">
+      <img src="https://static.tumblr.com/zpixtn5/Nyft61iy9/lua.jpg">
+      <div class="caption"><p>Lua</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/Ul1t5xljy/tvou_garage.jpg" data-lightbox="models" data-title="2025 Photography">
+      <img src="https://static.tumblr.com/zpixtn5/Ul1t5xljy/tvou_garage.jpg">
+      <div class="caption"><p>New Vā</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/rGbt5xli8/sb4.jpg" data-lightbox="models" data-title="2024 Drawing">
+      <img src="https://static.tumblr.com/zpixtn5/rGbt5xli8/sb4.jpg">
+      <div class="caption"><p>What's it to you?</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/tvYt5rcp0/tvp2.jpg" data-lightbox="models" data-title="2025 Photography">
+      <img src="https://static.tumblr.com/zpixtn5/tvYt5rcp0/tvp2.jpg">
+      <div class="caption"><p>Box</p></div>
+    </a>
+    
+    <a href="https://static.tumblr.com/zpixtn5/CJ0t5xlio/swtc3.jpg" data-lightbox="models" data-title="2022 Engraving">
+      <img src="https://static.tumblr.com/zpixtn5/CJ0t5xlio/swtc3.jpg">
+      <div class="caption"><p>Step with Culture pt. 2</p></div>
+    </a>
+    
+
+    
+    
+    
+    
+    
+    
+    
+ 
+    <!-- repeat for other images -->
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.js"></script>
+</body>
+
+    
+</html>
