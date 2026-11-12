@@ -4,194 +4,211 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TVOU</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" />
   <style>
-     
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: "Eina 09", sans-serif;
+      font-size: 1.2rem;
+      overflow-x: hidden;
+    }
 
-body {
-  margin: 0;
-  padding-top: 0;
-  background: white;
-  color: black;
-  font-family: "Eina 09", sans-serif;
-  font-weight: normal;
-  font-size: 1.2rem;
-  overflow-x: hidden;
-  overflow-y: auto;
+    #content h1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 9999;
+      margin: 0;
+      font-weight: bold;
+      font-size: 1.8rem;
+      letter-spacing: .10em;
+    }
+
+    #hero {
+      width: 100%;
+      height: 50vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: relative;
+      display: block;
+    }
+
+    nav#bottomMenu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    nav#bottomMenu a {
+      flex: 1;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: .10em;
+      padding: 10px 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-left: 1px solid black;
+    }
+
+    nav#bottomMenu a:first-child {
+      border-left: none;
+    }
+
+    nav#bottomMenu a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      padding: 50px 5%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .about h2 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about p {
+      margin-bottom: 1.5rem;
+    }
+
+
+
+/* Articles section */
+.articles {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 5%;
 }
-
-#content h1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  z-index: 9999;
-  color: black;
-  margin: 0;
-  font-family: "Eina 09", sans-serif;
+.articles h2 {
+  text-align: left;
+  margin-bottom: 16px;
+  letter-spacing: .08em;
+  font-size: 1em;
   font-weight: bold;
-  font-size: 1.8rem;
-  letter-spacing: .10em;
 }
 
-h2 {
-    font-weight: normal;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-p {
-    margin-left: 20px;
-   margin-right: 20px;
-}
-
-#hero {
-  width: 100%;
-  height: 50vh;   
-  overflow: hidden;
-  position: relative;
-}
-
-#hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* scales and crops nicely */
-  display: block;
-}
-
-
-nav#bottomMenu {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
+.carousel {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;              /* remove extra padding */
-  z-index: 9999;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 50px;
 }
 
-nav#bottomMenu a {
-  flex: 1;                 /* each link takes equal width */
-  text-align: center;      /* center text inside each quarter */
-  color: black;
+.card {
+  flex: 0 0 auto;
+  width: 267px; /* match thumbnail cap */
   text-decoration: none;
-  font-size: 1.2rem;
-  font-family: "Eina 09", sans-serif;
-  font-weight: bold;
-  letter-spacing: .10em;
-  padding: 10px 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-left: 1px solid black; /* vertical divider */
-}
-
-/* Remove the first divider on the leftmost button */
-nav#bottomMenu a:first-child {
-  border-left: none;
-}
-
-nav#bottomMenu a:hover {
-  background-color: black; /* inverse fill hover */
-  color: white;
-}
-
-
-.container {
-  width: 100%;
-  padding: 50px 5%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-.gallery {
-  column-count: 4;        /* default: 4 columns */
-  column-gap: 2rem;       /* space between columns */
-}
-
-.gallery a {
-  display: inline-block;  /* allow items to flow into columns */
-  width: 100%;            /* fill column width */
-  margin-bottom: 2rem;    /* spacing between items vertically */
-}
-
-/* Medium screens (tablet) */
-@media (max-width: 1024px) {
-  .gallery {
-    column-count: 3;
-  }
-}
-
-/* Small screens (phones) */
-@media (max-width: 768px) {
-  .gallery {
-    column-count: 2;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .gallery {
-    column-count: 1;
-  }
-}
-
-
-.gallery a {
-  position: relative;
-  height: auto;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
-
-.gallery img {
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.gallery img:hover {
-  opacity: 0.5;
-  cursor: zoom-in;
-}
-
-.caption {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  background-color: rgba(250, 235, 215, 0.7);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.caption p {
-  text-align: center;
   color: black;
-  padding: 1.5rem;
+  border: 1px solid #ccc;
+  background: white;
+  scroll-snap-align: start;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
 }
 
-.gallery a:hover .caption {
-  opacity: 1;
-  cursor: zoom-in;
+.thumb {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 267px;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.meta {
+  padding: 12px 14px;
+}
+.meta h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+.meta p {
+  margin: 0;
+  color: #555;
+  font-size: .95rem;
 }
 
 
+
+    /* Timeline styles */
+    .timeline {
+      max-width: 800px;
+      margin: 50px auto;
+      position: relative;
+      padding-left: 40px;
+      border-left: 2px solid black;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: .13em;
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .timeline-item p {
+      margin: 5px 0 0;
+      line-height: 1.4;
+    }
   @media(max-width:600px){nav#bottomMenu a{font-size:.8rem;letter-spacing:0;padding:12px 0}} body{padding-bottom:48px}</style>
 </head>
 <body>
@@ -201,146 +218,223 @@ nav#bottomMenu a:hover {
 </div>
 
 <div id="hero">
-    <img src="/assets/5ee76b048bf7264d.jpg">
+  <img src="../assets/8f21cada9887e664.jpg" alt="Hero image">
 </div>
 
 <nav id="bottomMenu">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/voyages/">Voyages</a>
-  <a href="/contact/">Contact</a>
+  <a href="../">Home</a>
+  <a href="../about/">About</a>
+  <a href="../voyages/">Voyages</a>
+  <a href="../contact/">Contact</a>
 </nav>
 
-<h2 class="center">Artwork</h2>
-<p class="center">Click on images to enlarge</p>
-
 <div class="container">
-  <div class="gallery">
-    <a href="/assets/2d57cbaa8c5b6be2.jpg" data-lightbox="models" data-title="2024 Installation">
-      <img src="/assets/2d57cbaa8c5b6be2.jpg">
-      <div class="caption"><p>Celestial Navigation</p></div>
-    </a>
-    
-    <a href="/assets/a968a06cab4895c6.jpg" data-lightbox="models" data-title="2023 Painting">
-      <img src="/assets/a968a06cab4895c6.jpg">
-      <div class="caption"><p>Wave</p></div>
-    </a>
-    
-    <a href="/assets/544ba603059f1e35.jpg" data-lightbox="models" data-title="2023 Drawing">
-      <img src="/assets/544ba603059f1e35.jpg">
-      <div class="caption"><p>F.O.E.</p></div>
-    </a>
-    
-    <a href="/assets/b3a5f967d3c692af.jpg" data-lightbox="models" data-title="2024 Sculpture">
-      <img src="/assets/b3a5f967d3c692af.jpg">
-      <div class="caption"><p>Bubbles</p></div>
-    </a>
-    
-    <a href="/assets/9974ab1c4e0356a4.jpg" data-lightbox="models" data-title="2024 Painting">
-      <img src="/assets/9974ab1c4e0356a4.jpg">
-      <div class="caption"><p>Lone Outrigger pt. 1</p></div>
-    </a>
-    
-    <a href="/assets/38778006c8b8890e.jpg" data-lightbox="models" data-title="2025 Drawing">
-      <img src="/assets/38778006c8b8890e.jpg">
-      <div class="caption"><p>Mud</p></div>
-    </a>
-    
-     <a href="/assets/1ed59bb376e4ddac.jpg" data-lightbox="models" data-title="2024 Ceramic">
-      <img src="/assets/1ed59bb376e4ddac.jpg">
-      <div class="caption"><p>Home</p></div>
-    </a>
-    
-    <a href="/assets/a2a8aebd34c9893f.jpg" data-lightbox="models" data-title="2025 Intaglio Print">
-      <img src="/assets/a2a8aebd34c9893f.jpg">
-      <div class="caption"><p>Fetu</p></div>
-    </a>
-    
-    <a href="/assets/3cf98ddcfa953244.jpg" data-lightbox="models" data-title="2022 Engraving">
-      <img src="/assets/3cf98ddcfa953244.jpg">
-      <div class="caption"><p>Step with Culture</p></div>
-    </a>
-    
-     <a href="/assets/fcfd2869f1637ddd.jpg" data-lightbox="models" data-title="2024 Drawing">
-  <img src="/assets/fcfd2869f1637ddd.jpg">
-  <div class="caption"><p>School</p></div>
-</a>
-    
-    <a href="/assets/b19323c1b910c5d0.jpg" data-lightbox="models" data-title="2025 Photography">
-      <img src="/assets/b19323c1b910c5d0.jpg">
-      <div class="caption"><p>Ceiling</p></div>
-    </a>
-    
-    <a href="/assets/bd047467a9133d2a.jpg" data-lightbox="models" data-title="2025 Relief Print">
-      <img src="/assets/bd047467a9133d2a.jpg">
-      <div class="caption"><p>Mūmū</p></div>
-    </a>
-    
-      <a href="/assets/67390aa5595cd883.jpg" data-lightbox="models" data-title="2022 Carving">
-      <img src="/assets/67390aa5595cd883.jpg">
-      <div class="caption"><p>Patterns of the Pacific</p></div>
-    </a>
-    
-     <a href="/assets/1541143a08f3d7f7.jpg" data-lightbox="models" data-title="2024 Sculpture">
-      <img src="/assets/1541143a08f3d7f7.jpg">
-      <div class="caption"><p>Toloa</p></div>
-    </a>
-    
-    <a href="/assets/7b87e14684d19b77.jpg" data-lightbox="models" data-title="2023 Painting">
-      <img src="/assets/7b87e14684d19b77.jpg">
-      <div class="caption"><p>Leaf</p></div>
-    </a>
-    
-    <a href="/assets/def17e0306d55375.jpg" data-lightbox="models" data-title="2025 Photography">
-      <img src="/assets/def17e0306d55375.jpg">
-      <div class="caption"><p>Coffin</p></div>
-    </a>
-    
-    <a href="/assets/8a1edacc6667fe1c.jpg" data-lightbox="models" data-title="2024 Painting">
-      <img src="/assets/8a1edacc6667fe1c.jpg">
-      <div class="caption"><p>Lone Outrigger pt. 2</p></div>
-    </a>
-    
-     <a href="/assets/efb21b3250ba35f9.jpg" data-lightbox="models" data-title="2024 Sculpture">
-      <img src="/assets/efb21b3250ba35f9.jpg">
-      <div class="caption"><p>Lua</p></div>
-    </a>
-    
-    <a href="/assets/e1329fab6bd13442.jpg" data-lightbox="models" data-title="2025 Photography">
-      <img src="/assets/e1329fab6bd13442.jpg">
-      <div class="caption"><p>New Vā</p></div>
-    </a>
-    
-    <a href="/assets/b3c43d85a889de84.jpg" data-lightbox="models" data-title="2024 Drawing">
-      <img src="/assets/b3c43d85a889de84.jpg">
-      <div class="caption"><p>What's it to you?</p></div>
-    </a>
-    
-    <a href="/assets/d49fb47f2f6e6602.jpg" data-lightbox="models" data-title="2025 Photography">
-      <img src="/assets/d49fb47f2f6e6602.jpg">
-      <div class="caption"><p>Box</p></div>
-    </a>
-    
-    <a href="/assets/89bd8527d12d89cd.jpg" data-lightbox="models" data-title="2022 Engraving">
-      <img src="/assets/89bd8527d12d89cd.jpg">
-      <div class="caption"><p>Step with Culture pt. 2</p></div>
-    </a>
-    
+  <div class="about">
+    <h2>Talofa</h2>
+    <p>
+      Fitisemanu carries his work as an artist like a canoe across the ocean of experiences. His studies in art at Brigham Young University strengthened his ability to navigate both tradition and innovation, but every project remains a voyage undertaken with others. Guided by ancestral protocols and the relational space of vā, his practice acknowledges that creativity is never a solitary crossing. Each endeavor moves forward with a team—like a fleet of outriggers—where stories, responsibilities, and connections are carried together across islands, cultures, and generations.
+    </p>
+  </div>
+  
+  
+  
+ <div class="articles">
+  <h2>Articles</h2>
+  <div class="carousel">
+  
+  <!-- BYU Cfac -->
+  <a class="card" href="https://cfac.byu.edu/from-football-to-fine-art-fitisemanu-charts-a-new-creative-path">
+    <div class="thumb">
+      <img src="../assets/a831b22bfb30b163.jpg">
+    </div>
+    <div class="meta">
+      <h3>From Football to Fine Art</h3>
+      <p>Fitisemanu Charts a New Creative Path</p>
+    </div>
+  </a>
+  
+  <!-- Manuia Pacific Pathways -->
+  <a class="card" href="https://www.facebook.com/share/v/19y9QzFhhD/" target="_blank">
+    <div class="thumb">
+      <img src="../assets/0528c5b362fc9bf8.jpg" alt="Manuia Foundation Pacific Pathways 2025 initiative video">
+    </div>
+    <div class="meta">
+      <h3>Pacific Pathways 2025</h3>
+      <p>Manuia Foundation Initiative</p>
+    </div>
+  </a>
 
-    
-    
-    
-    
-    
-    
-    
- 
-    <!-- repeat for other images -->
+   <!-- Becoming BYU -->
+  <a class="card" href="https://philanthropies.churchofjesuschrist.org/byu/news-features/becoming-byu-strengthen-the-student-experience/" target="_blank">
+    <div class="thumb">
+      <img src="../assets/751794db0129e5a0.jpg" alt="Becoming BYU strengthen the student experience">
+    </div>
+    <div class="meta">
+      <h3>Becoming BYU</h3>
+      <p>Strengthen the Student Experience</p>
+    </div>
+  </a>
+
+ <!-- Hawaii & BYU -->
+  <a class="card" href="https://cfac.byu.edu/third-graders-illustrate-hawaiian-legends-with-help-from-byu-art-students" target="_blank">
+    <div class="thumb">
+      <img src="../assets/e07d5389c152905b.jpg" alt="Third graders illustrate Hawaiian legends with help from BYU art students">
+    </div>
+    <div class="meta">
+      <h3>Hawaiian Legends Project</h3>
+      <p>BYU Art Students & Kamehameha School</p>
+    </div>
+  </a>
+
+  <!-- Deseret News -->
+  <a class="card" href="https://www.deseret.com/utah/2024/06/14/artists-utah-careers-modern-art-culture/" target="_blank">
+    <div class="thumb">
+      <img src="../assets/8480d1918bef368a.jpg" alt="Artists in Utah careers and modern art culture">
+    </div>
+    <div class="meta">
+      <h3>Artists in Utah</h3>
+      <p>Deseret News Careers & Modern Art Culture</p>
+    </div>
+  </a>
+
+  <!-- Voyage Utah -->
+  <a class="card" href="https://voyageutah.com/interview/check-out-talavou-fitisemanus-story/" target="_blank">
+    <div class="thumb">
+      <img src="https://cdn.voyageutah.com/wp-content/uploads/2024/06/c-1715989678281-img_8872jpeg-1.jpg" alt="Voyage Utah interview with Talavou Fitisemanu">
+    </div>
+    <div class="meta">
+      <h3>Voyage Utah Interview</h3>
+      <p>Talavou Fitisemanu’s Story</p>
+    </div>
+  </a>
+  
+  <!-- Brandon's Podcast -->
+<a class="card" href="https://open.spotify.com/episode/5gtwFUg3RcmCS7Bv59722g?si=d4HcW_1XQyiiCVeCYt7ghQ&nd=1&dlsi=f358c36fa6aa47b5" target="_blank">
+  <div class="thumb">
+    <img src="../assets/c17e8dcbc0f15dbf.jpg" alt="Spotify podcast episode with Talavou Fitisemanu">
+  </div>
+  <div class="meta">
+    <h3>Authentic Podcast</h3>
+    <p>Faith to Act & Divine Heritage</p>
+  </div>
+</a>
+
+  <!-- PMN 2024 -->
+  <a class="card" href="https://omny.fm/shows/pacificmedianetwork/from-division-1-football-to-full-time-art-talavou?in_playlist=radio-531pi" target="_blank">
+    <div class="thumb">
+      <img src="../assets/e7b7813e989768f6.jpg">
+    </div>
+    <div class="meta">
+      <h3>Pacific Media Network</h3>
+      <p>From Division 1 Football to Art</p>
+    </div>
+  </a>
+
+  <!-- BYU Hidden Diversity -->
+  <a class="card" href="https://universe.byu.edu/2024/03/07/students-lead-a-conversation-on-hidden-diversity/" target="_blank">
+    <div class="thumb">
+      <img src="../assets/3b15dd2a349d6ba3.jpg">
+    </div>
+    <div class="meta">
+      <h3>Hidden Diversity Conversation</h3>
+      <p>Students Lead Dialogue at BYU</p>
+    </div>
+  </a>
+
+  <!-- Kiana Podcast -->
+  <a class="card" href="https://castbox.fm/episode/Faith-to-Act-%26-the-Importance-of-Knowing-Your-Divine-Heritage-with-Talavou-Fitisemanu-id6439253-id803491869?country=us" target="_blank">
+    <div class="thumb">
+      <img src="../assets/8c345e05a4a6ad7a.jpg">
+    </div>
+    <div class="meta">
+      <h3>Faith to Act Podcast</h3>
+      <p>Knowing Your Divine Heritage</p>
+    </div>
+  </a>
+
+  <!-- Drew Podcast -->
+  <a class="card" href="https://music.amazon.de/podcasts/a772a430-1853-435c-afa8-d5cbef1406f8/episodes/2c853eed-a1f3-4faa-aef8-d05105981337/jake-and-drew-sgotw-talavou-fitisemanu" target="_blank">
+    <div class="thumb">
+      <img src="../assets/be5cd2e05a35035c.jpg">
+    </div>
+    <div class="meta">
+      <h3>Jake & Drew Podcast</h3>
+      <p>Talavou Fitisemanu SGOTW Episode</p>
+    </div>
+  </a>
+
+  <!-- BYU Universe 2024 -->
+  <a class="card" href="https://universe.byu.edu/2024/03/18/byu-student-switches-from-sports-to-art-starts-polynesian-artwork-business/" target="_blank">
+    <div class="thumb">
+      <img src="https://brightspotcdn.byu.edu/dims4/default/3500787/2147483647/strip/true/crop/1920x1280+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fbrigham-young-brightspot-us-east-2.s3.us-east-2.amazonaws.com%2Fd0%2F4f%2F00b9f1ad22f7494515ce4a338b05%2Fdsc03586-1920x1280.jpg" alt="BYU student switches from sports to art">
+    </div>
+    <div class="meta">
+      <h3>BYU Student Switches from Sports to Art</h3>
+      <p>Starts Polynesian Artwork Business</p>
+    </div>
+  </a>
+  </div>
+
+  
+  
+  
+  
+
+ <div class="timeline">
+  <div class="timeline-item">
+    <h3>Dec 2025 – Solo Exhibition & Seminar, Provo, UT</h3>
+    <p>Hosted his second annual solo exhibition and seminar titled <em>Money, Pattern, Respect</em>, continuing the tradition of gathering community to share art, dialogue, and cultural narratives.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Oct 2025 – Pasifika in New York City</h3>
+    <p>Took his team on their first tour to the MET and organized a Polynesian conference of creatives in New York, bringing together voices across the diaspora.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Jun 2025 – Manuia Pathways, New Zealand</h3>
+    <p>Led a team of college students from Harvard, Temple, and BYU to tour schools in New Zealand, sharing opportunities in America and building bridges across cultures.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Mar 2025 – BYU Hawaiian Legends Project, Hilo, HI</h3>
+    <p>Collaborated with third graders to illustrate Hawaiian legends, guiding young students in visual storytelling while connecting cultural heritage with art education. 
+      <a href="https://cfac.byu.edu/third-graders-illustrate-hawaiian-legends-with-help-from-byu-art-students" target="_blank">Read more</a>
+    </p>
+  </div>
+  <div class="timeline-item">
+    <h3>Dec 2024 – First Solo Exhibition, Provo, UT</h3>
+    <p>Hosted his first solo exhibition titled Celestial Navigation, welcoming 300+ people to share art and stories of his village.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Jul 2024 – Pacific Media Network, Auckland, NZ</h3>
+    <p>Shared artist story on 3 radio shows across 3 countries; toured facilities and joined collaboration meetings.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>May 2024 – Tiapapata Art Centre, Samoa</h3>
+    <p>Exhibited traditional stone tools; weeklong travels between villages learning from master craftsmen.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>May 2024 – PolyStrong Foundation, Lehi, UT</h3>
+    <p>Designed 8 awards for the PolyStrong Leadership Summit & Gala, incorporating Samoan patterns.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>May 2024 – Springville Museum of Art, UT</h3>
+    <p>Museum debut piece <em>Patterns of the Pacific</em> at the 100th Annual Spring Salon Show.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Nov 2023 – Pasifika Enriching Arts of Utah, Salt Lake City</h3>
+    <p>First group exhibition, showcasing wood carving with stain finish.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Oct 2023 – BYU Religious Education Student Symposium, Provo, UT</h3>
+    <p>Exhibited wood carving; won <em>Best in Show</em> in a university-wide competition.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Aug 2020 – Dec 2021 – Snow College, Ephraim, UT</h3>
+    <p>Completed Associate of Science degree; transition from athletics to art.</p>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.js"></script>
-</body>
+  </div>
+</div>
 
-    
+</body>
 </html>
